@@ -5,9 +5,13 @@ import java.util.Scanner;
 public class KodillaSnakeApplication {
 
     public static void main(String[] args) {
-        Board board = new Board();
-        board.printBoard();
-        Snake snake = new Snake(Directions.UP, 100, 50);
+        Board board = new Board(20, 20);
+        Snake snake = new Snake();
+        Coord firstApple = new Coord(10, 10);
+
+        snake.firstSnakePosition();
+        snake.getTail();
+        snake.moveSnake(Directions.UP, 100, 50);
 
         Scanner scanner = new Scanner(System.in);
         int counter = 0;
