@@ -20,7 +20,7 @@ public class Snake {
         return area;
     }
 
-    public void moveSnake(Directions direction, int x, int y){
+    public List<Coord> moveSnake(Directions direction, int x, int y){
         if (direction == Directions.UP){
             tail.add(new Coord(x, y + 1));
         }
@@ -33,7 +33,7 @@ public class Snake {
         if (direction == Directions.LEFT){
             tail.add( new Coord(x - 1, y));
         }
-        int lastObj = tail.lastIndexOf(tail);
-        tail.remove(lastObj);
+        tail.remove(tail.size()- 1);
+        return tail;
     }
 }

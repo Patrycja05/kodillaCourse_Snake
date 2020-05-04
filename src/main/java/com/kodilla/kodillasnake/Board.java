@@ -8,14 +8,14 @@ public class Board {
     private final int column;
     private Coord apple;
 
-    public Board(int row, int column) {
+    public Board(int row, int column){
         this.row = row;
         this.column = column;
     }
 
     public Snake initSnake(){
         snake = new Snake();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             snake.addTail(new Coord(i + row / 2, column / 2));
         }
         return snake;
@@ -35,8 +35,8 @@ public class Board {
 
     public Coord generateRandomApple(){
         Random generateNumber = new Random();
-        int randomNumberX = generateNumber.nextInt(20);
-        int randomNumberY = generateNumber.nextInt(20);
+        int randomNumberX = generateNumber.nextInt(row - 1);
+        int randomNumberY = generateNumber.nextInt(column - 1);
         apple = new Coord(randomNumberX, randomNumberY);
         return apple;
     }
@@ -44,10 +44,11 @@ public class Board {
     @Override
     public String toString() {
         String str = "";
-        for (int i = 0; i < 20; i++){
-            for (int j = 0; j < 20; j++)
-            str += getSymbol(row, column);
+        for (int i = 0; i < row; i++){
+            for (int j = 0; j < column; j++) {
+                str += "|" + getSymbol(row, column) + "|" + "\n";
+            }
         }
-        return "------------------------" + str + "------------------------";
+        return "------------------------" + "\n" + str  + "------------------------";
     }
 }
