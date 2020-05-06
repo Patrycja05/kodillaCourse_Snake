@@ -1,5 +1,7 @@
 package com.kodilla.kodillasnake;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Board {
@@ -7,28 +9,38 @@ public class Board {
     private final int row;
     private final int column;
     private Coord apple;
+    private List<Coord> apples = new ArrayList<>();
 
     public Board(int row, int column){
         this.row = row;
         this.column = column;
     }
 
-    public Snake initSnake(){
-        snake = new Snake();
-        for (int i = 0; i < 2; i++) {
-            snake.addTail(new Coord(i + row / 2, column / 2));
-        }
-        return snake;
+    public List<Coord> getApples() {
+        return apples;
     }
 
     public String getSymbol(int x, int y){
-        snake = new Snake();
         Coord actualPosition = new Coord(x, y);
-        if(actualPosition == snake.getTail()){
+        boolean foundSnake = false;
+        for(Coord coord: snake.getTail()) {
+            if (coord.equals(actualPosition)) {
+                foundSnake = true;
+            }
+        }
+
+        boolean foundApple = false;
+        for(Coord coord: getApples()) {
+            if (coord.equals(actualPosition)) {
+                foundApple = true;
+                }
+            }
+
+        if (foundSnake == true){
             return "*";
-        } else if (actualPosition == generateRandomApple()){
-                return "O";
-            } else {
+        } else if(foundApple == true){
+            return "0";
+        } else {
             return " ";
         }
     }

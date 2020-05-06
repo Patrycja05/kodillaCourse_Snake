@@ -7,16 +7,22 @@ public class KodillaSnakeApplication {
     public static void main(String[] args) {
         Board board = new Board(5, 5);
         Snake snake = new Snake();
+        Coord coord = new Coord(7, 8);
 
-        board.initSnake();
-        snake.firstSnakePosition();
+        board.generateRandomApple();
         snake.getTail();
-        board.getSymbol(2,2);
+        snake.moveSnake(Directions.UP);
+        snake.getHead();
+        board.getApples();
+
+
+
+
 
         Scanner scanner = new Scanner(System.in);
         int counter = 0;
         //while(true) {
-            System.out.println(board);
+
             //String s = scanner.nextLine().toUpperCase();
 
             counter++;

@@ -1,5 +1,7 @@
 package com.kodilla.kodillasnake;
 
+import java.util.Objects;
+
 public class Coord {
     private int x;
     private int y;
@@ -15,5 +17,22 @@ public class Coord {
 
     public int getY() {
         return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coord coord = (Coord) o;
+        return x == coord.x &&
+                y == coord.y;
     }
 }
