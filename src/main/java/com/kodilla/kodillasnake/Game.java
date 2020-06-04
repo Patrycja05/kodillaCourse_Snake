@@ -9,13 +9,10 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.layout.Background;
-
-
 
 public class Game {
     private final Board board;
@@ -73,7 +70,6 @@ public class Game {
             display();
         } else {
             gameOver();
-            //System.exit(0);
         }
     }
 

@@ -29,7 +29,6 @@ public class SnakeApplication extends javafx.application.Application {
         grid.setAlignment(Pos.CENTER);
         grid.setBackground(background);
 
-
         Scene scene = new Scene(grid, 600, 400, Color.WHEAT);
         for (int n = 0; n < 60; n++) {
             grid.getColumnConstraints().add(new ColumnConstraints(10));
